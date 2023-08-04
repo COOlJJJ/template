@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>This is an about page</h1>
-    <a-button type="primary">Primary</a-button>
+    <h1>This is an about page-ant-design-vue</h1>
+    <!-- <a-button type="primary">Primary</a-button>
     <a-carousel :after-change="onChange" style="width: 500px;">
       <div>
         <h3>1</h3>
@@ -16,22 +16,23 @@
         <h3>4</h3>
       </div>
     </a-carousel>
+
+    <a-steps :current="1" :items="[
+      {
+        title: 'Finished',
+        description,
+      },
+      {
+        title: 'In Progress',
+        description,
+        subTitle: 'Left 00:00:08',
+      },
+      {
+        title: 'Waiting',
+        description,
+      },
+    ]"></a-steps> -->
   </div>
-  <a-steps :current="1" :items="[
-    {
-      title: 'Finished',
-      description,
-    },
-    {
-      title: 'In Progress',
-      description,
-      subTitle: 'Left 00:00:08',
-    },
-    {
-      title: 'Waiting',
-      description,
-    },
-  ]"></a-steps>
 </template>
 <script setup lang="ts">
 

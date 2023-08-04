@@ -1,6 +1,6 @@
 import './assets/main.css'
-import Antd from 'ant-design-vue';  
-import 'ant-design-vue/dist/reset.css';
+// import Antd from 'ant-design-vue';  
+// import 'ant-design-vue/dist/reset.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -9,6 +9,10 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from './App.vue'
 import router from './router'
 import axiosPlugin from './config/axios'; 
+
+import ArcoDesignVue from '@arco-design/web-vue';
+import '@arco-design/web-vue/dist/arco.css';
+
 
 
 
@@ -21,5 +25,6 @@ pinia.use(piniaPluginPersistedstate)
 app.use(pinia)
 app.use(router)
 app.use(axiosPlugin);
-app.use(Antd);
+// app.use(Antd);
+app.use(ArcoDesignVue)  
 app.mount('#app')

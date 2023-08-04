@@ -1,13 +1,31 @@
 <template>
-  <h1 >This is a home page</h1>
+  <h1>This is a home page-arco-design</h1>
   <button @click="btn">{{ count }}</button>
+  <a-button type="primary">Primary</a-button>
+
+  <a-table :data="data" style="margin-top: 30px">
+    <template #columns>
+      <a-table-column title="Name">
+        <a-table-column title="First Name" data-index="first"></a-table-column>
+        <a-table-column title="Last Name" data-index="last"></a-table-column>
+      </a-table-column>
+      <a-table-column title="Salary" data-index="salary"></a-table-column>
+      <a-table-column title="Address" data-index="address"></a-table-column>
+      <a-table-column title="Email" data-index="email"></a-table-column>
+      <a-table-column title="Optional">
+        <template #cell="{ record }">
+          <a-button @click="$modal.info({ title: 'Name', content: record.name })">view</a-button>
+        </template>
+      </a-table-column>
+    </template>
+  </a-table>
 </template>
 
 <script setup lang="ts">
 //导入pinia
 import { useCounterStore } from '../stores/counter'
 //导入ref函数
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 // 使用pinia
 const counterStore = useCounterStore()
@@ -19,6 +37,66 @@ function btn() {
   //把更新后的数据存储到pinia中
   counterStore.count = count.value
 }
+
+const show = ref(true)
+
+const columns = reactive([{
+  title: 'Name',
+  dataIndex: 'name',
+}, {
+  title: 'Salary',
+  dataIndex: 'salary',
+}, {
+  title: 'Address',
+  dataIndex: 'address',
+}, {
+  title: 'Email',
+  dataIndex: 'email',
+}, {
+  title: 'Optional',
+  slotName: 'optional'
+}]);
+const data = reactive([{
+  key: '1',
+  name: 'Jane Doe',
+  first: 'Jane',
+  last: 'Doe',
+  salary: 23000,
+  address: '32 Park Road, London',
+  email: 'jane.doe@example.com'
+}, {
+  key: '2',
+  name: 'Alisa Ross',
+  first: 'Alisa',
+  last: 'Ross',
+  salary: 25000,
+  address: '35 Park Road, London',
+  email: 'alisa.ross@example.com'
+}, {
+  key: '3',
+  name: 'Kevin Sandra',
+  first: 'Kevin',
+  last: 'Sandra',
+  salary: 22000,
+  address: '31 Park Road, London',
+  email: 'kevin.sandra@example.com'
+}, {
+  key: '4',
+  name: 'Ed Hellen',
+  first: 'Ed',
+  last: 'Hellen',
+  salary: 17000,
+  address: '42 Park Road, London',
+  email: 'ed.hellen@example.com'
+}, {
+  key: '5',
+  name: 'William Smith',
+  first: 'William',
+  last: 'Smith',
+  salary: 27000,
+  address: '62 Park Road, London',
+  email: 'william.smith@example.com'
+}]);
 </script>
 
 <style scoped>
