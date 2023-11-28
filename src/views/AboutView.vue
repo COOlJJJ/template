@@ -1,44 +1,13 @@
 <template>
   <div>
-    <h1>This is an about page-ant-design-vue</h1>
-    <!-- <a-button type="primary">Primary</a-button>
-    <a-carousel :after-change="onChange" style="width: 500px;">
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-    </a-carousel>
-
-    <a-steps :current="1" :items="[
-      {
-        title: 'Finished',
-        description,
-      },
-      {
-        title: 'In Progress',
-        description,
-        subTitle: 'Left 00:00:08',
-      },
-      {
-        title: 'Waiting',
-        description,
-      },
-    ]"></a-steps> -->
+    <h1>This is an about page</h1>
   </div>
 </template>
 <script setup lang="ts">
+import { inject, onMounted, ref } from "vue";
 
-
-import { inject, onMounted } from 'vue';
-const axios: any = inject('$axios');
+const axios: any = inject("$axios");
+const date = ref();
 const fetchData = async () => {
   try {
     const response = await axios.post("/GetrohPieData");
@@ -54,12 +23,11 @@ const onChange = (current: number) => {
 };
 
 onMounted(() => {
-  fetchData()
-})
+  // fetchData();
+});
 
-const description = 'This is a description.';
+const description = "This is a description.";
 </script>
-
 
 <style scoped>
 /* For demo */

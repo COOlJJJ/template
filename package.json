@@ -18,7 +18,6 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@arco-design/web-vue": "^2.49.2",
     "@tsconfig/node18": "^18.2.0",
     "@types/axios": "^0.14.0",
     "@types/node": "^18.17.0",
